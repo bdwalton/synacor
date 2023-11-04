@@ -21,7 +21,7 @@ func main() {
 
 	prog := make([]uint16, 0)
 
-	for i := 0; i <= len(bin); i += 2 {
+	for i := 0; i < len(bin); i += 2 {
 		val := binary.LittleEndian.Uint16(bin[i : i+2])
 		prog = append(prog, val)
 	}
