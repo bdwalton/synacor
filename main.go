@@ -3,9 +3,10 @@ package main
 import (
 	"encoding/binary"
 	"flag"
-	"github.com/bdwalton/synacor/synacor"
-	"io/ioutil"
 	"log"
+	"os"
+
+	"github.com/bdwalton/synacor/synacor"
 )
 
 var binaryFile = flag.String("binary_file", "", "The binary program file.")
@@ -13,7 +14,7 @@ var binaryFile = flag.String("binary_file", "", "The binary program file.")
 func main() {
 	flag.Parse()
 
-	bin, err := ioutil.ReadFile(*binaryFile)
+	bin, err := os.ReadFile(*binaryFile)
 	if err != nil {
 		log.Fatalf("Couldn't open %q: %v", *binaryFile, err)
 	}
